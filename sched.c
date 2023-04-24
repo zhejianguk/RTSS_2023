@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
+// Structure for task
 struct task {
   double T;
   double C;
@@ -8,6 +9,7 @@ struct task {
   double u;
 };
 
+// dbf function
 double dbf(struct task* h, double t) {
   double dbf_t;
   dbf_t = (((t - h->D) / h->T) + 1) * h->C;
