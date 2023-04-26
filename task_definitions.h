@@ -2,6 +2,7 @@
 #define TASK_DEFINITIONS_H
 
 #define TASKSET_SIZE 40
+#define q 2
 
 typedef double time_instance;
 
@@ -13,6 +14,11 @@ struct task {
     double u; // Utilisation
 };
 
-typedef struct task taskset[TASKSET_SIZE]; // Define the new type 'tasks'
+// Structure for taskset
+struct taskset {
+    struct task tasks[TASKSET_SIZE]; // Array of tasks
+    int task_count; // Number of tasks in the taskset
+};
+
 
 #endif // TASK_DEFINITIONS_H
