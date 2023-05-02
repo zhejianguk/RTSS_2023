@@ -11,8 +11,9 @@ bound: bound.c
 task_gen: task_gen.c
 	${CC} ${CFLAGS} -o task_gen.elf task_gen.c -lm 
 
-sched_test: sched_test.c
-	${CC} ${CFLAGS} -o sched_test.elf sched_test.c bound.o -lm
+main: main.c
+	${CC} ${CFLAGS} -o main.elf main.c bound.o -lm
+
 
 clean:
 	rm -f *.o *.elf *.so
