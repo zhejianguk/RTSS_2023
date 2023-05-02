@@ -2,7 +2,7 @@
 #define DEFINITIONS_H
 
 #define TASKSET_SIZE 10
-#define q 8
+#define q 4
 
 typedef double time_instance;
 

@@ -11,8 +11,12 @@ bound: bound.c
 task_gen: task_gen.c
 	${CC} ${CFLAGS} -o task_gen.elf task_gen.c -lm 
 
+
+min_budget: min_budget.c
+	${CC} ${CFLAGS} -c min_budget.c -lm
+
 main: main.c
-	${CC} ${CFLAGS} -o main.elf main.c bound.o -lm
+	${CC} ${CFLAGS} -o main.elf main.c bound.o min_budget.o -lm
 
 
 clean:

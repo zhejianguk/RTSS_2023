@@ -69,33 +69,31 @@ void taskset_utilization(taskset *ts) {
 
 int schedulability_test(taskset *ts, capacity *cap) {
   cap->w = cap->B/cap->P;
-  printf("%f====\r\n", cap->w);
   taskset_utilization(ts);
 
   double w = cap->w;
   double U = ts->U;
   if (U >= w){
-    printf("================ Unschedule ================ \r\n");
-    printf("U>=w, U = %f, w= %f \r\n", U, w);
+    // printf("================ Unschedule ================ \r\n");
+    // printf("U>=w, U = %f, w= %f \r\n", U, w);
     return -1;
   }
 
   double eta = max_T_D(*ts);
   double Z = (eta*U + 2*(q-1+cap->P-cap->B)*w)/(w-U);
   double t_start = min_D(*ts);
+  // printf("Debug: eta=%f; Z=%f; t_start=%f\r\n", eta, Z, t_start);
 
   for (double t = t_start; t < Z; t++){
     double d = dbf_core(*ts, t);
     double s = sbf_t(*cap, t);
+    // printf("Debug: t=%f, D=%f; S=%f\r\n", t, d, s);
     if (d > s) {
-      printf("================ Unschedule ================ \r\n");
-      printf("d > s at t %f, d = %f, s = %f \r\n", t, d, s);
+      // printf("================ Unschedule ================ \r\n");
+      // printf("d > s at t %f, d = %f, s = %f \r\n", t, d, s);
       return -1;
     }
   }
-
-  printf ("*** Paseed *** \r\n");
-
 
   return 0;
 }
