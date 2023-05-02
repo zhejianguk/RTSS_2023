@@ -73,6 +73,7 @@ int schedulability_test(taskset *ts, capacity *cap) {
 
   double w = cap->w;
   double U = ts->U;
+  // printf("U = %f, w= %f \r\n", U, w);
   if (U >= w){
     // printf("================ Unschedule ================ \r\n");
     // printf("U>=w, U = %f, w= %f \r\n", U, w);
