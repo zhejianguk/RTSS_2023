@@ -16,6 +16,19 @@ double max_T_D(taskset tasks) {
     return max_diff;
 }
 
+double min_D_C(taskset tasks) {
+    double min_diff = tasks.tasks[0].D - tasks.tasks[0].C;
+
+    for (int task_idx = 1; task_idx < tasks.task_count; ++task_idx) {
+        double current_diff = tasks.tasks[task_idx].D - tasks.tasks[task_idx].C;
+        if (current_diff < min_diff) {
+            min_diff = current_diff;
+        }
+    }
+
+    return min_diff;
+}
+
 double min_D(taskset tasks) {
     double min_deadline = tasks.tasks[0].D;
 
@@ -66,6 +79,19 @@ void taskset_utilization(taskset *ts) {
 
     ts->U = total_utilization; // Store the total utilization in the taskset structure
 }
+
+double total_bandwidth(capacity *cap) {
+    double total_bandwidth_t = 0;
+
+    for (int core_idx = 0; core_idx < NUM_CORES; ++core_idx) {
+        cap[core_idx].w = cap[core_idx].B / cap[core_idx].P; // Calculate and store the task's utilization in the u field
+        total_bandwidth_t += cap[core_idx].w;
+    }
+
+    return total_bandwidth_t;
+}
+
+
 
 int schedulability_test(taskset *ts, capacity *cap) {
   cap->w = cap->B/cap->P;

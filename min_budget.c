@@ -14,8 +14,8 @@ int min_budget(taskset *ts, double Given_Period) {
     cap_t.B = Given_Period;
 
     if (schedulability_test(ts, &cap_t) == -1){
-        printf("================ Unschedule ================ \r\n");
-        printf("================ Min-Budget ================ \r\n");
+        // printf("================ Unschedule ================ \r\n");
+        // printf("================ Min-Budget ================ \r\n");
         return -1;
     }
 
