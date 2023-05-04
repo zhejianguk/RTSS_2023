@@ -1,9 +1,12 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
+#define HOW_MANY_TRAILS 1000
+#define U_Factor 0.05
+
 #define NUM_CORES 4
-#define TASKSET_SIZE 4
-#define q 4
+#define TASKSET_SIZE 8
+#define q 2
 
 typedef double time_instance;
 

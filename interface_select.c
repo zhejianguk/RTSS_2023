@@ -69,6 +69,7 @@ int interface_select_all (taskset *ts, capacity* cap){
   while (c < NUM_CORES){
     int interface_select_t = interface_select(ts, c, cap);
     if (interface_select(ts, c, cap) == 0x7FFFFFFF){
+      // printf("No pair found for core %d.  \r\n", total_bandwith_t);
       return -1;
     } else {
       c = c + 1;
